@@ -18,5 +18,8 @@
 	<input type="text" name="finder">
 	<input type="submit" value="Buscar Libros">
 	</form:form>
+	<form:form action="${pageContext.request.contextPath}/buscarTodos" methos="post">
+		<input type="submit" value="Ver Todos">
+	</form:form>
 </body>
 </html>
