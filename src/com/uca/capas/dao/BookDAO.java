@@ -14,4 +14,10 @@ public interface BookDAO {
 	public Book findOne(Integer codigo) throws DataAccessException;
 	public BigInteger availableAuthors() throws DataAccessException;
 	public BigInteger sumStock() throws DataAccessException;
+	public List<Book> findByGenre(String genero) throws DataAccessException;
+	public List<Book> findByAuthor(String autor) throws DataAccessException;
+	public List<Book> findByisbn(String isbn) throws DataAccessException;
+	public BigInteger countBooks(String autor) throws DataAccessException;
+	public BigInteger countBooksByGen( String gen) throws DataAccessException;
+	public BigInteger countBooksByisbn(String isbn) throws DataAccessException;
 }

@@ -40,4 +40,40 @@ public class BookServiceImpl implements BookService{
 		return bookDao.sumStock();
 	}
 
+	@Override
+	public List<Book> findByGenre(String genero) {
+		// TODO Auto-generated method stub
+		return bookDao.findByGenre(genero);
+	}
+
+	@Override
+	public List<Book> findByAuthor(String autor) {
+		// TODO Auto-generated method stub
+		return bookDao.findByAuthor(autor);
+	}
+
+	@Override
+	public List<Book> findByisbn(String isbn) {
+		// TODO Auto-generated method stub
+		return bookDao.findByisbn(isbn);
+	}
+
+	@Override
+	public BigInteger countBooks(String autor) {
+		// TODO Auto-generated method stub
+		return bookDao.countBooks(autor);
+	}
+
+	@Override
+	public BigInteger countBooksByGen(String gen) {
+		// TODO Auto-generated method stub
+		return bookDao.countBooksByGen(gen);
+	}
+
+	@Override
+	public BigInteger countBooksByisbn(String isbn) {
+		// TODO Auto-generated method stub
+		return bookDao.countBooksByisbn(isbn);
+	}
+
 }
