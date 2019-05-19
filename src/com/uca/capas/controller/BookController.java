@@ -1,5 +1,6 @@
 package com.uca.capas.controller;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,11 @@ public class BookController {
 	public ModelAndView verTodos() {
 		ModelAndView mav = new ModelAndView();
 		List<Book> libros = bookService.findAll();
-		int x = libros.size();
+		BigInteger x = bookService.sumStock();
+		BigInteger y = bookService.availableAuthors();
 		mav.addObject("libros", libros);
 		mav.addObject("x", x);
+		mav.addObject("y", y);
 		mav.setViewName("libros");
 		
 		return mav;

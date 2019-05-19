@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Hay <c:out value="${x}"/> libros en existencia, de Y cantidad de autores diferentes</h1>
+	<h1>Hay <c:out value="${x}"/> libros en existencia, de <c:out value="${y}"/> cantidad de autores diferentes</h1>
 	<table>
 		<tr><th>Titulo</th>
 			<th>Autor</th>

@@ -1,5 +1,6 @@
 package com.uca.capas.service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 
@@ -9,4 +10,6 @@ public interface BookService {
 
 	public List<Book> findAll();
 	public Book findOne(Integer codigo);
+	public BigInteger availableAuthors();
+	public BigInteger sumStock();
 }

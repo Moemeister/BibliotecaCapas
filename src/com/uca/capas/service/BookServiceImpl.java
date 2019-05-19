@@ -1,5 +1,6 @@
 package com.uca.capas.service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,18 @@ public class BookServiceImpl implements BookService{
 	public Book findOne(Integer codigo) {
 		// TODO Auto-generated method stub
 		return bookDao.findOne(codigo);
+	}
+
+	@Override
+	public BigInteger availableAuthors() {
+		// TODO Auto-generated method stub
+		return bookDao.availableAuthors();
+	}
+
+	@Override
+	public BigInteger sumStock() {
+		// TODO Auto-generated method stub
+		return bookDao.sumStock();
 	}
 
 }
