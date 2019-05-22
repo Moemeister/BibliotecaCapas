@@ -62,7 +62,7 @@ public class BookDAOImpl implements BookDAO{
 	public List<Book> findByGenre(String genero) throws DataAccessException {
 		// TODO Auto-generated method stub
 		StringBuffer sb = new StringBuffer();
-		sb.append("select * from public.Libro where genre =:genero");
+		sb.append("select * from public.Libro where genre ilike '%' || :genero || '%'");
 		Query query = entityManager.createNativeQuery(sb.toString(),Book.class);
 		query.setParameter("genero", genero);
 		List<Book> resulset= query.getResultList();
@@ -74,7 +74,7 @@ public class BookDAOImpl implements BookDAO{
 	public List<Book> findByAuthor(String autor) throws DataAccessException {
 		// TODO Auto-generated method stub
 		StringBuffer sb = new StringBuffer();
-		sb.append("select * from public.Libro where autor =:autor");
+		sb.append("select * from public.Libro where autor ilike '%' || :autor || '%'");
 		Query query = entityManager.createNativeQuery(sb.toString(),Book.class);
 		query.setParameter("autor", autor);
 		List<Book> resulset= query.getResultList();
@@ -86,7 +86,7 @@ public class BookDAOImpl implements BookDAO{
 	public List<Book> findByisbn(String isbn) throws DataAccessException {
 		// TODO Auto-generated method stub
 		StringBuffer sb = new StringBuffer();
-		sb.append("select * from public.Libro where isbn =:isbn");
+		sb.append("select * from public.Libro where isbn  ilike '%' || :isbn || '%'");
 		Query query = entityManager.createNativeQuery(sb.toString(),Book.class);
 		query.setParameter("isbn", isbn);
 		List<Book> resulset= query.getResultList();
@@ -98,7 +98,7 @@ public class BookDAOImpl implements BookDAO{
 	public BigInteger countBooks(String autor) throws DataAccessException {
 		// TODO Auto-generated method stub
 		StringBuffer sb = new StringBuffer();
-		sb.append("select count(autor) from public.Libro where autor=:autor");
+		sb.append("select count(autor) from public.Libro where autor  ilike '%' || :autor || '%'");
 		Query query = entityManager.createNativeQuery(sb.toString());
 		query.setParameter("autor", autor);
 		BigInteger resulset= (BigInteger) query.getSingleResult();
@@ -110,7 +110,7 @@ public class BookDAOImpl implements BookDAO{
 	public BigInteger countBooksByGen(String gen) throws DataAccessException {
 		// TODO Auto-generated method stub
 		StringBuffer sb = new StringBuffer();
-		sb.append("select count(genre) from public.Libro where genre=:genero");
+		sb.append("select count(genre) from public.Libro where genre ilike '%' || :genero || '%' ");
 		Query query = entityManager.createNativeQuery(sb.toString());
 		query.setParameter("genero", gen);
 		BigInteger resulset= (BigInteger) query.getSingleResult();
@@ -122,7 +122,7 @@ public class BookDAOImpl implements BookDAO{
 	public BigInteger countBooksByisbn(String isbn) throws DataAccessException {
 		// TODO Auto-generated method stub
 		StringBuffer sb = new StringBuffer();
-		sb.append("select count(isbn) from public.Libro where isbn=:isbn");
+		sb.append("select count(isbn) from public.Libro where isbn  ilike '%' || :isbn || '%'");
 		Query query = entityManager.createNativeQuery(sb.toString());
 		query.setParameter("isbn", isbn);
 		BigInteger resulset= (BigInteger) query.getSingleResult();

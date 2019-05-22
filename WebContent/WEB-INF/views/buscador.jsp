@@ -1,23 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> --%>
  <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<!-- <meta charset="UTF-8"> -->
 <title>Insert title here</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="resources/css/style.css">
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
 </head>
 <body>
 <% 
 String selection = request.getParameter("target"); 
-%> 
-	<h1>Se encontraron <c:out value="${x}"/> resultados para &quot;<c:out value="${var}"/>&quot; en &quot;<%=selection%>&quot;</h1>
-	<table>
-		<tr><th>Titulo</th>
+%> 	<div>
+	<h1 style="margin: 20px;">Se encontraron <c:out value="${x}"/> resultados para &quot;<c:out value="${var}"/>&quot; en &quot;<%=selection%>&quot;</h1>
+	<div class="col-md-8">
+	<button class="btn btn-primary "style="font-size:16px;" onclick="location.href='${pageContext.request.contextPath}/'" value="BACK"> BACK</button><br><br>
+	<table style="font-size:16px;" class="table table-list-search">
+		<tr><th>T&iacute;tulo</th>
 			<th>Autor</th>
 			<th>ISBN</th>
 			<th>Cantidad</th>
-			<th>Genero</th>
+			<th>G&eacute;nero</th>
 		</tr>
 		<c:forEach items="${libros}" var="libros">
 			<tr>
@@ -31,5 +36,7 @@ String selection = request.getParameter("target");
 		</c:forEach>
 	
 	</table>
+	</div>
+	</div>
 </body>
 </html>

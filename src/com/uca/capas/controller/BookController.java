@@ -32,25 +32,26 @@ public class BookController {
 		return mav;
 	}
 	@RequestMapping("/buscarLibro")
-	public ModelAndView autor(@RequestParam(value="target") String target,
-			@RequestParam(value="genero") String genero,@RequestParam(value="author") String autor,
-			@RequestParam(value="isbn") String isbn) {
+//	public ModelAndView autor(@RequestParam(value="target") String target,
+//			@RequestParam(value="genero") String genero,@RequestParam(value="author") String autor,
+//			@RequestParam(value="isbn") String isbn) {
+	public ModelAndView autor(@RequestParam(value="target") String target, @RequestParam(value="finder") String finder) {
 		ModelAndView mav = new ModelAndView();
 		List<Book> libros;
 		BigInteger x;
 		String s_var =null;
 		if(target.equals("Genero")) {
-			libros = bookService.findByGenre(genero);
-			x = bookService.countBooksByGen(genero);
-			s_var = genero;
+			libros = bookService.findByGenre(finder);
+			x = bookService.countBooksByGen(finder);
+			s_var = finder;
 		}else if(target.equals("ISBN")){
-			libros = bookService.findByisbn(isbn);
-			x = bookService.countBooksByisbn(isbn);
-			s_var = isbn;
+			libros = bookService.findByisbn(finder);
+			x = bookService.countBooksByisbn(finder);
+			s_var = finder;
 		}else {
-			libros = bookService.findByAuthor(autor);
-			x = bookService.countBooks(autor);
-			s_var = autor;
+			libros = bookService.findByAuthor(finder);
+			x = bookService.countBooks(finder);
+			s_var = finder;
 		}
 		mav.addObject("var", s_var);
 		mav.addObject("x", x);
